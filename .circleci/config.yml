@@ -54,9 +54,7 @@ jobs:
 
       - run:
           name: Run rspec in parallel
-          command: |
-            bundle exec rspec --profile 10 
-      - ruby/bundle-install
+          command: bundle exec rspec
 
 # What to do next? Set up a test job. Please see 
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
