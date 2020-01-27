@@ -11,8 +11,8 @@ orbs:
 jobs: 
   build: 
     docker: 
-      - image: circleci/ruby:2.6.3-stretch-node
-      environment: # environment variables for primary container
+      - image: circleci/ruby:2.6.5-stretch-node
+        environment: # environment variables for primary container
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
@@ -54,9 +54,7 @@ jobs:
 
       - run:
           name: Run rspec in parallel
-          command: |
-            bundle exec rspec --profile 10 
-      - ruby/bundle-install
+          command: bundle exec rspec
 
 # What to do next? Set up a test job. Please see 
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
