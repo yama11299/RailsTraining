@@ -12,7 +12,7 @@ jobs:
   build: 
     docker: 
       - image: circleci/ruby:2.6.3-stretch-node
-	environment: # environment variables for primary container
+      environment: # environment variables for primary container
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
@@ -22,7 +22,7 @@ jobs:
       - image: circleci/postgres:11 # database image
         environment: # environment variables for database
           POSTGRES_USER: postgres
-          POSTGRES_DB: web_decor_development
+          POSTGRES_DB: ToDoList_test
           POSTGRES_PASSWORD: ""
     steps: 
       - checkout
@@ -55,8 +55,7 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-            bundle exec rspec --profile 10 \
-	
+            bundle exec rspec --profile 10 
       - ruby/bundle-install
 
 # What to do next? Set up a test job. Please see 
